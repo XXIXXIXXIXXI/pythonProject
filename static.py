@@ -32,22 +32,26 @@ with mp_face_mesh.FaceMesh(
                 image=annotated_image,
                 landmark_list=face_landmarks,
                 connections=mp_face_mesh.FACEMESH_TESSELATION,
-                landmark_drawing_spec=None,
+                landmark_drawing_spec=drawing_spec,
                 connection_drawing_spec=mp_drawing_styles
                 .get_default_face_mesh_tesselation_style())
             mp_drawing.draw_landmarks(
                 image=annotated_image,
                 landmark_list=face_landmarks,
                 connections=mp_face_mesh.FACEMESH_CONTOURS,
-                landmark_drawing_spec=None,
+                landmark_drawing_spec=drawing_spec,
                 connection_drawing_spec=mp_drawing_styles
                 .get_default_face_mesh_contours_style())
             mp_drawing.draw_landmarks(
                 image=annotated_image,
                 landmark_list=face_landmarks,
                 connections=mp_face_mesh.FACEMESH_IRISES,
-                landmark_drawing_spec=None,
+                landmark_drawing_spec=drawing_spec,
                 connection_drawing_spec=mp_drawing_styles
                 .get_default_face_mesh_iris_connections_style())
         cv2.imwrite(OUTPUT_IMAGE, annotated_image)
-
+    """
+    mp_drawing.plot_landmarks(face_landmarks, mp_face_mesh.FACEMESH_TESSELATION)
+    mp_drawing.plot_landmarks(face_landmarks, mp_face_mesh.FACEMESH_CONTOURS)
+    mp_drawing.plot_landmarks(face_landmarks, mp_face_mesh.FACEMESH_IRISES)
+    """
